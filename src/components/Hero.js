@@ -15,7 +15,7 @@ const Hero = () => {
                         Our Destinations
                     </HeroH1>
                     <HeroP>Everywhere in the world</HeroP>
-                    <Button>Travel Now</Button>
+                    <Button primary="true" big="true" round="true" to="/trips">Travel Now</Button>
                 </HeroItems>
             </HeroContent>
         </HeroContainer>
