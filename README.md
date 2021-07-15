@@ -1,4 +1,4 @@
-A responsive travel website built with React, Gatsby.js, GraphQL, and styled components.
+A website built with Gatsby and styled components.
 
 App is deployed at https://confident-yonath-3eab48.netlify.app/
 
