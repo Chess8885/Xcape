@@ -1,17 +1,26 @@
-import * as React from "react"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import React from "react"
+import Destinations from "../components/Destinations"
 import Hero from "../components/Hero"
-import Trips from "../components/Trips"
+import SEO from "../components/seo"
+import HomeNav from "../components/Navbar/HomeNav"
+import Stats from "../components/Stats"
 import Testimonials from "../components/Testimonials"
+import Email from "../components/Email"
+import Footer from "../components/Footer"
+import { GlobalStyles } from "../components/styles/GlobalStyles"
 
 const IndexPage = () => (
-  <Layout>
-    <Seo title="Home" />
+  <>
+    <SEO title="Home" />
+    <GlobalStyles />
+    <HomeNav />
     <Hero />
-    <Trips heading="Our Favorite Places" />
+    <Destinations />
+    <Stats />
     <Testimonials />
-  </Layout>
+    <Email />
+    <Footer />
+  </>
 )
 
 export default IndexPage
