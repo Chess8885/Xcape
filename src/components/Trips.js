@@ -12,7 +12,7 @@ import { ImLocation } from "react-icons/im"
  * component, rather than having to pass the image data down from pages.
  */
 
-const Trips = () => {
+const Trips = ({heading}) => {
   const data = useStaticQuery(graphql`
     query TripsQuery {
       allTripsJson {
@@ -42,32 +42,32 @@ const Trips = () => {
     // and push it to our array
     data.allTripsJson.edges.forEach((item, index) => {
       tripsArray.push(
-        <TripCard key={index}>
-          <TripImg
+        <ProductCard key={index}>
+          <ProductImg
             src={item.node.img.childImageSharp.fluid.src}
             fluid={item.node.img.childImageSharp.fluid}
           />
-          <TripInfo>
+          <ProductInfo>
             <TextWrap>
               <ImLocation />
-              <TripTitle>{item.node.name}</TripTitle>
+              <ProductTitle>{item.node.name}</ProductTitle>
             </TextWrap>
             {/* We can use css property to add an inline style to our custom component */}
-            <MyButton to="/destinations" primary="true">
+            <Button to="/trips" primary="true" round="true" css={`position: absolute; top:420px; font-size:14px;`}>
               {item.node.button}
-            </MyButton>
-          </TripInfo>
-        </TripCard>
+            </Button>
+          </ProductInfo>
+        </ProductCard>
       )
     })
     return tripsArray
   }
 
   return (
-    <TripsContainer>
-     
-      <TripsWrapper>{getData(data)}</TripsWrapper>
-    </TripsContainer>
+    <ProductsContainer>
+     <ProductsHeading>{heading}</ProductsHeading>
+      <ProductWrapper>{getData(data)}</ProductWrapper>
+    </ProductsContainer>
   )
 }
 
@@ -76,13 +76,13 @@ const Trips = () => {
  ***********************************************************************************
  */
 
-const TripsContainer = styled.div`
+const ProductsContainer = styled.div`
   padding: 4rem calc((100vw - 1300px) / 2);
   background: #fff;
   color: #fff;
 `
 
-const TripsWrapper = styled.div`
+const ProductWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 10px;
@@ -98,7 +98,7 @@ const TripsWrapper = styled.div`
   }
 `
 
-const TripCard = styled.div`
+const ProductCard = styled.div`
   line-height: 2;
   width: 100%;
   height: 500px;
@@ -111,7 +111,7 @@ const TripCard = styled.div`
   }
 `
 
-const TripImg = styled(Img)`
+const ProductImg = styled(Img)`
   height: 100%;
   max-width: 100%;
   position: relative;
@@ -124,7 +124,7 @@ const TripImg = styled(Img)`
   }
 `
 
-const TripInfo = styled.div`
+const ProductInfo = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -142,15 +142,17 @@ const TextWrap = styled.div`
   top: 375px;
 `
 
-const TripTitle = styled.div`
+const ProductTitle = styled.div`
   font-weight: 400;
   font-size: 1rem;
   margin-left: 0.5rem;
 `
-const MyButton = styled(Button)`
-  position: absolute;
-  top: 420px;
-  font-size: 14px;
+
+const ProductsHeading = styled.div`
+font-size: clamp(1.2rem, 5vw, 3rem);
+text-align: center;
+margin-bottom: 5rem;
+color: #000;
 `
 
 export default Trips
