@@ -1,0 +1,26 @@
+[
+    {
+        "img": "../assets/images/travel-1.jpg",
+        "alt": "Lisbon",
+        "name": "Lisbon",
+        "button": "View Destination"
+    },
+    {
+        "img": "../assets/images/travel-2.jpg",
+        "alt": "Hanoi",
+        "name": "Hanoi",
+        "button": "View Destination"
+    },
+    {
+        "img": "../assets/images/travel-3.jpg",
+        "alt": "Humayun Forest",
+        "name": "Humayun Forest",
+        "button": "View Destination"
+    },
+    {
+        "img": "../assets/images/travel-4.jpg",
+        "alt": "Ad Deir",
+        "name": "Ad Deir",
+        "button": "View Destination"
+    }
+]
